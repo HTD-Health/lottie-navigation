@@ -1,0 +1,45 @@
+html, body {
+  background-color: #ffffff;
+  color: #324292;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+a {
+  color: #00cccc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#logo {
+  font-family: "Rubik", sans-serif;
+  font-size: 9pt;
+  position: absolute;
+  text-align: center;
+  width: fit-content;
+  left: 50px;
+  padding: 0 20px 0 20px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0px 0px 50px 5px rgba(100,100,100,0.15);
+}
+
+#logo img {
+  height: 18px;
+}
+
+#footer {
+  font-family: "Rubik", sans-serif;
+  position: absolute;
+  text-align: center;
+  bottom: 10px;
+  width: 100%;
+}
