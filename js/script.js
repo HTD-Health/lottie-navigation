@@ -13,10 +13,10 @@ function changeMenu(currentFrame, lastFrame, animStart, animEnd, repeatAnimStart
 
   // repeat animation
   if (lastFrame === animEnd) {
-    navBar.playSegments([repeatAnimStart, repeatAnimEnd], false);
+    navBar.playSegments([repeatAnimStart, repeatAnimEnd], true);
   // exit + entry animation
   } else if (currentFrame !== 0) {
-    navBar.playSegments([currentFrame, currentFrame + exitAnimDuration], false);
+    navBar.playSegments([currentFrame, currentFrame + exitAnimDuration], true);
     navBar.playSegments([animStart, animEnd], false);
   // entry animation
   } else {
@@ -28,7 +28,7 @@ function changeMenu(currentFrame, lastFrame, animStart, animEnd, repeatAnimStart
 
 };
 
-window.onload = function (){
+navBar.addEventListener("DOMLoaded", () => {
 
   // go to first frame of nav bar
   navBar.goToAndStop(0,true);
@@ -49,4 +49,4 @@ window.onload = function (){
     changeMenu(currentActiveFrame, lastActiveFrame, 240, 270, 280, 310, 330, 15);
   }, false);
 
-};
+});
