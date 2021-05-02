@@ -28,7 +28,7 @@ function changeMenu(currentFrame, lastFrame, animStart, animEnd, repeatAnimStart
 
 };
 
-window.onload = function (){
+navBar.addEventListener("DOMLoaded", () => {
 
   // go to first frame of nav bar
   navBar.goToAndStop(0,true);
@@ -49,4 +49,4 @@ window.onload = function (){
     changeMenu(currentActiveFrame, lastActiveFrame, 240, 270, 280, 310, 330, 15);
   }, false);
 
-};
+});
