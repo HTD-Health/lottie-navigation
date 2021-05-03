@@ -1,4 +1,4 @@
-var navBar = lottie.loadAnimation({
+const animation = lottie.loadAnimation({
   container: document.getElementById('container'),
   renderer: 'svg',
   loop: false,
@@ -6,47 +6,41 @@ var navBar = lottie.loadAnimation({
   path: 'json/nav.json'
 });
 
-var currentActiveFrame = 0;
-var lastActiveFrame = 0;
-
-function changeMenu(currentFrame, lastFrame, animStart, animEnd, repeatAnimStart, repeatAnimEnd, goToFrame, exitAnimDuration) {
-
-  // repeat animation
-  if (lastFrame === animEnd) {
-    navBar.playSegments([repeatAnimStart, repeatAnimEnd], true);
-  // exit + entry animation
-  } else if (currentFrame !== 0) {
-    navBar.playSegments([currentFrame, currentFrame + exitAnimDuration], true);
-    navBar.playSegments([animStart, animEnd], false);
-  // entry animation
-  } else {
-    navBar.playSegments([animStart, animEnd], true);
-  };
-
-  lastActiveFrame = animEnd;
-  currentActiveFrame = goToFrame;
-
+const onLottieLoad = () => {
+  animation.goToAndStop(animation.totalFrames, true);
+  const onMenuClicked = (startFrame) => () => changeMenu(startFrame);
+  
+  const home = document.getElementById("home");
+  const myBooks = document.getElementById("mybooks");
+  const notifications = document.getElementById("notifications");
+  
+  home.addEventListener('click', onMenuClicked(0));
+  myBooks.addEventListener('click', onMenuClicked(120));
+  notifications.addEventListener('click', onMenuClicked(240));
 };
 
-navBar.addEventListener("DOMLoaded", () => {
+animation.addEventListener("DOMLoaded", onLottieLoad);
 
-  // go to first frame of nav bar
-  navBar.goToAndStop(0,true);
+let previousAnimationStart = -1;
+
+const changeMenu = (currentAnimationStart) => {
+  const animationDuration = 30;
+  const exitAnimationDuration = 15;
+  const currentAnimationEnd = currentAnimationStart + animationDuration;
+  const currentAnimationRepeatStart = currentAnimationEnd + 10;
+  const currentAnimationRepeatEnd = currentAnimationRepeatStart + animationDuration;
+  const previousAnimationExitStart = previousAnimationStart + 90;
+  const previousAnimationExitEnd = previousAnimationExitStart + exitAnimationDuration;
+   
+  if (previousAnimationStart !== -1) {
+    animation.playSegments([previousAnimationExitStart, previousAnimationExitEnd], true); 
+  }
   
-  var home = document.getElementById("home");
-  var mybooks = document.getElementById("mybooks");
-  var notifications = document.getElementById("notifications");
-
-  home.addEventListener('click', function(){
-    changeMenu(currentActiveFrame, lastActiveFrame, 0, 30, 40, 70, 90, 15);
-  }, false);
-
-  mybooks.addEventListener('click', function(){
-    changeMenu(currentActiveFrame, lastActiveFrame, 120, 150, 160, 190, 210, 15);
-  }, false);
-
-  notifications.addEventListener('click', function(){
-    changeMenu(currentActiveFrame, lastActiveFrame, 240, 270, 280, 310, 330, 15);
-  }, false);
-
-});
+  if (previousAnimationStart === currentAnimationStart) {
+    animation.playSegments([currentAnimationRepeatStart, currentAnimationRepeatEnd], true);
+  } else {
+    animation.playSegments([currentAnimationStart, currentAnimationEnd], false);    
+  }
+        
+  previousAnimationStart = currentAnimationStart;
+};
