@@ -5,6 +5,7 @@ html, body {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  font-family: "Rubik", sans-serif;
 }
 
 a {
@@ -13,33 +14,32 @@ a {
   font-weight: 600;
 }
 
+#main {
+  width:100%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
 #container {
   width: 100%;
-  height: 100%;
-  position: absolute;
+  height: calc(100% - 50px);
 }
 
 #logo {
-  font-family: "Rubik", sans-serif;
   font-size: 9pt;
   position: absolute;
-  text-align: center;
-  width: fit-content;
   left: 50px;
-  padding: 0 20px 0 20px;
+  padding: 15px 20px;
   background-color: white;
   border-radius: 0 0 10px 10px;
   box-shadow: 0px 0px 50px 5px rgba(100,100,100,0.15);
+  z-index: 1;
 }
 
 #logo img {
   height: 18px;
-}
-
-#footer {
-  font-family: "Rubik", sans-serif;
-  position: absolute;
-  text-align: center;
-  bottom: 10px;
-  width: 100%;
 }
