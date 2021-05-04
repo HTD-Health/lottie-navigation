@@ -6,7 +6,6 @@
 [![Dribbble](readme/dribbble.svg)](https://dribbble.com/HTD)
 
 ## What's Lottie?
----
 
 [**Lottie**](https://github.com/airbnb/lottie-web) library gives you the tools to render animations on the web or in mobile applications. These animations are first created in Adobe After Effects - or other animation software - and exported to a specially formated `.json`
 
@@ -15,7 +14,6 @@ This gives motion designers more freedom in creating complex animations and nece
 This example shows how you can implement a navigation bar with animations, states and clickable areas prepared right inside After Effects.
 
 ## How does it work?
----
 
 ### Clickable Areas
 The navigation bar in this example has 3 clickable areas for each section. Those are specified directly in After Effects by placing a rectangle with 0% opacity fill on a separate layer and naming it like a css id selector (e.g. `#home`).
