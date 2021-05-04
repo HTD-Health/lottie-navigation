@@ -1,10 +1,9 @@
 # Lottie Navigation Bar
 
-![](readme/preview.mp4)
+![Preview](readme/preview.gif)
 
 [![CodePen](readme/codepen.svg)](https://codepen.io/htdhealth/pen/LYxvdvm)
 [![Dribbble](readme/dribbble.svg)](https://dribbble.com/HTD)
-
 
 ## What's Lottie?
 ---
