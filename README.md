@@ -2,8 +2,9 @@
 
 ![Preview](readme/preview.gif)
 
-**Check it out on our dribbble account:**
+**Check it out codepen and dribbble:**
 
+[![CodePen](readme/codepen.svg)](https://codepen.io/htdhealth/pen/LYxvdvm)
 [![Dribbble](readme/dribbble.svg)](https://dribbble.com/HTD)
 
 ## What's Lottie?
